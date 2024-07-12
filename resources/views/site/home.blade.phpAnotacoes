@@ -1,0 +1,113 @@
+@extends('site.layout')
+@section('title', 'Essa é a página Home')
+@section('conteudo')
+    <h1> Essa é nossa home </h1>
+
+
+    {{-- Operador ternário. Exclamações usadas para não escapar tags html --}}
+    {!! isset($nome) ? 'Variável nome existe<br>' : 'Variável nome não existe\n' !!}
+
+    {{-- Definindo valor padrão --}}
+    {{ $teste ?? 'Valor padrão para variável inexistente' }}
+    <br>
+
+    {{-- ---------------------------------------------------- --}}
+
+    {{-- Estruturas de controle --}}
+    @if ($nome == 'Diego')
+        true if
+    @else
+        false if   
+    @endif
+
+    <br>
+
+    {{-- UNLESS: Contrário do if --}}
+    @unless ($nome == 'Diego')
+        true unless
+    @else
+        false unless
+    @endunless
+
+    <br>
+
+    {{-- Switch --}}
+    @switch($idade)
+        @case(31)
+            Idade Correta
+            @break
+        @case(32)
+            Idade errada
+            @break
+        @default
+            Valor padrão
+    @endswitch
+
+    <br>
+
+    {{-- isset --}}
+    @isset($nome)
+        Existe a variável nome
+    @endisset
+
+    <br>
+
+    {{-- empty --}}
+    @empty($nome)
+        Variável nome está vazia
+    @endempty
+
+    <br>
+
+    {{-- auth: verifica se usuário está autenticado --}}
+    @auth
+        Usuário está autenticado 
+    @endauth
+
+    <br>
+
+    {{-- guest: contrário do auth --}}
+    @guest
+        Usuário NÃO está autenticado
+    @endguest
+
+    <br>
+
+    {{-- ------------------------------------------------------------------------ --}}
+
+    <br>
+
+    {{-- ESTRUTURAS DE REPETIÇÃO --}}
+
+    @for ($i = 0; $i <= 10; $i++)
+        Valor atual é {{ $i }} <br>
+    @endfor
+
+    <br>
+
+    @php
+        $i = 0;
+    @endphp
+
+    @while ($i <= 10)
+        valor atual é {{ $i }} <br>
+        @php
+            $i++
+        @endphp
+    @endwhile
+
+    <br>
+
+    @foreach ($frutas as $fruta)
+        {{ $fruta }} <br>
+    @endforeach
+
+    <br>
+
+    @forelse ($objetos as $objeto)
+        {{ $objeto }} <br>
+    @empty
+        Não há objetos
+    @endforelse
+
+@endsection

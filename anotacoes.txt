@@ -1,0 +1,26 @@
+Rodar migrates
+php artisan migrate | Roda migrations
+php artisan migrate:rollback | Desfaz anterior
+php artisan migrate:status | Infos sobre migrations
+php artisan make:migration create_nome_da_tabela_table | Cria tabela
+php artisan make:migration produtos --create=produtos | Cria tabela
+php artisan migrate:reset | Dá reset nas migrações e não reinstala nada 
+
+IMPORTANTE: esterei estudando DBAL para modificar colunas do banco de dados, mas a documentação do láravel 
+MUDOU, incluindo métodos nativos para tal. Estudar esses métodos posteriormente
+
+php artisan make:model Nome_do_model | Criar model
+
+php artisan make:model Categoria --migration | Cria model e migration ao mesmo tempo
+
+php artisan make:model Categoria -mcr | Cria model, migration, controller resource
+
+php artisan make:seeder UsersSeeder | Cria Seeder
+
+php artisan db:seed | roda seeder
+
+php artisan make:factory CategoriaFactory
+
+php artisan make:model Teste -mfscr | cria model, migrate, factory, Seeder e controller resource 
+
+Ao tentar passar uma variável contendo um HTML de um controller para uma view, usar o padrão {!! $html !!}
